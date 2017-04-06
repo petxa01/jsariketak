@@ -1,48 +1,70 @@
 <!DOCTYPE html>
 <html>
+
 <body>
 
-<button onclick="myFunction()">Try it</button>
+    <button onclick="myFunction()">Try it</button>
 
-<p id="suma"></p>
-<p id="resta"></p>
-<p id="multi"></p>
-<p id="divide"></p>
-<p id="pow"></p>
+    <p id="suma"></p>
+    <p id="resta"></p>
+    <p id="multi"></p>
+    <p id="divide"></p>
+    <p id="pow"></p>
 
-<script>
-function myFunction() {
+    <script>
+        function myFunction() {
 
-    do {
-      var num1 = prompt("Please enter a number");
+            do {
+                var num1 = prompt("Please enter a number");
 
-      num1=parseInt(num1);
-
-
-    } while (isNaN(num1));
-    do {
-      var num2 = prompt("Please enter another number");
-      num2=parseInt(num2);
-    } while (isNaN(num2));
-
-    document.getElementById("suma").innerHTML =
-    num1 +" + "+ num2 +" = "+ (num1+num2);
-
-    document.getElementById("resta").innerHTML =
-    num1 +" - "+ num2 +" = "+ (num1-num2);
-
-    document.getElementById("multi").innerHTML =
-    num1 +" * "+ num2 +" = "+ (num1*num2);
-
-    document.getElementById("divide").innerHTML =
-    num1 +" / "+ num2 +" = "+ (num1/num2);
-
-    document.getElementById("pow").innerHTML =
-    num1 +" ^ "+ num2 +" = "+ (Math.pow(num1,num2));
+                num1 = parseInt(num1);
 
 
-}
-</script>
+            } while (isNaN(num1));
+            do {
+                var num2 = prompt("Please enter another number");
+                num2 = parseInt(num2);
+            } while (isNaN(num2));
+            do {
+                var menu = prompt(
+                  "Press 1 to sum \n Press 2 to subtract \n Press 3 to multiply \n Press 4 to divide");
+                menu = parseInt(menu);
+            } while (isNaN(menu) || menu<1 || menu>4);
+            switch (menu) {
+              case 1:
+              document.getElementById("suma").innerHTML =
+                  num1 + " + " + num2 + " = " + (num1 + num2);
+
+                break;
+                case 2:
+                document.getElementById("resta").innerHTML =
+                    num1 + " - " + num2 + " = " + (num1 - num2);
+                break;
+                case 3:
+                document.getElementById("multi").innerHTML =
+                    num1 + " * " + num2 + " = " + (num1 * num2);
+                break;
+                case 4:
+                document.getElementById("divide").innerHTML =
+                    num1 + " / " + num2 + " = " + (num1 / num2);
+                break;
+
+            }
+
+
+
+
+
+
+
+
+          //  document.getElementById("pow").innerHTML =
+          //    num1 + " ^ " + num2 + " = " + (Math.pow(num1, num2));
+
+
+        }
+    </script>
 
 </body>
+
 </html>
