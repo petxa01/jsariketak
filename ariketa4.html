@@ -15,26 +15,19 @@
         function myFunction() {
 
             do {
-                var num1 = prompt("Please enter a number");
-
-                num1 = parseInt(num1);
-
-
+                var num1 = parseInt(prompt("Please enter a number"));
             } while (isNaN(num1));
             do {
-                var num2 = prompt("Please enter another number");
-                num2 = parseInt(num2);
+                var num2 = parseInt(prompt("Please enter another number"));
             } while (isNaN(num2));
             do {
-                var menu = prompt(
-                  "Press 1 to sum \n Press 2 to subtract \n Press 3 to multiply \n Press 4 to divide");
-                menu = parseInt(menu);
+                var menu = parseInt(prompt(
+                  "Press 1 to sum \n Press 2 to subtract \n Press 3 to multiply \n Press 4 to divide"));
             } while (isNaN(menu) || menu<1 || menu>4);
             switch (menu) {
               case 1:
               document.getElementById("suma").innerHTML =
                   num1 + " + " + num2 + " = " + (num1 + num2);
-
                 break;
                 case 2:
                 document.getElementById("resta").innerHTML =
