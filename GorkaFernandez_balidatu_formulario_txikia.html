@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      function balidatuFormularioTxikia(){
+        var izena = document.forms["form1"]["izena"].value;
+        var adina = document.forms["form1"]["adina"].value;
+        if (izena == ""){
+          alert("Idatzi izena mesedez");
+
+        } else if (isNaN(adina) || adina==""){
+          alert("adina zenbaki bat izan behar da");
+
+        } else if (adina < 18) {
+          alert("adina 18 baino handiagoa izan behar da");
+
+        } else if (document.getElementsByName("slct")[0].value == "aukeratu"){
+          alert("aukeratu zerbait mesedez");
+
+        } else {
+          alert("Eskerrik asko datuak bidaltzearren");
+
+        }
+
+    }
+    </script>
+  </head>
+  <body>
+    <h1 style="margin:auto; width:300px;">Sartu datuak</h1>
+    <div style="margin:auto; width:700px;">
+
+    <img src="form_icon.jpg" style="float: left;">
+    <form  name="form1"  onsubmit="balidatuFormularioTxikia()" method="post">
+      <table border="1">
+        <tr>
+          <td>Izena:</td><td><input type="text" name="izena"</td>
+        </tr>
+        <tr>
+          <td>Adina:</td><td><input style="width:50px;" type="text" name="adina"></td>
+        </tr>
+        <tr>
+          <td>Kontaktu mota:</td>
+          <td>
+            <select name="slct">
+              <option value="aukeratu">Aukeratu</option>
+              <option value="kont">Kontaktu komertziala</option>
+              <option value="bez">Bezeroari arreta</option>
+              <option value="horn">Hornitzailearekin kontaktua</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center"><input  type="submit" name="bidali" value="Bidali"></td>
+        </tr>
+      </table>
+    </form>
+    </div>
+  </body>
+</html>
