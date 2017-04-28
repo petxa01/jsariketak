@@ -4,24 +4,58 @@
     <meta charset="utf-8">
     <title></title>
     <script type="text/javascript">
+    function setImageVisible(id, visible) {
+    var img = document.getElementById(id);
+    img.style.visibility = (visible ? 'visible' : 'hidden');
+    }
+    </script>
+    <script type="text/javascript">
+      function setFocus(id){
+        document.getElementById(id).focus();
+      }
+
+    </script>
+    <script type="text/javascript">
       function balidatuFormularioTxikia(){
         var izena = document.forms["form1"]["izena"].value;
         var adina = document.forms["form1"]["adina"].value;
+        var fallo = false;
         if (izena == ""){
           alert("Idatzi izena mesedez");
+          fallo=true;
+          setFocus(izena);
 
-        } else if (isNaN(adina) || adina==""){
+        } else{
+          setImageVisible(1,true);
+        }
+
+
+         if (isNaN(adina) || adina==""){
           alert("adina zenbaki bat izan behar da");
+          fallo=true;
+          setFocus(adina);
+          return false;
 
         } else if (adina < 18) {
           alert("adina 18 baino handiagoa izan behar da");
+          fallo=true;
+          setFocus(adina);
+          return false;
 
-        } else if (document.getElementsByName("slct")[0].value == "aukeratu"){
+        } else{
+            setImageVisible(2,true);
+        } if (document.getElementsByName("slct")[0].value == "aukeratu"){
           alert("aukeratu zerbait mesedez");
+          fallo=true;
+          return false;
 
         } else {
-          alert("Eskerrik asko datuak bidaltzearren");
+          setImageVisible(3,true)
 
+        }
+        if (fallo==false) {
+          alert("Eskerrik asko datuak bidaltzearren");
+          return false;
         }
 
     }
@@ -30,32 +64,32 @@
   <body>
     <h1 style="margin:auto; width:300px;">Sartu datuak</h1>
     <div style="margin:auto; width:700px;">
-
-    <img src="form_icon.jpg" style="float: left;">
-    <form  name="form1"  onsubmit="balidatuFormularioTxikia()" method="post">
-      <table border="1">
-        <tr>
-          <td>Izena:</td><td><input type="text" name="izena"</td>
-        </tr>
-        <tr>
-          <td>Adina:</td><td><input style="width:50px;" type="text" name="adina"></td>
-        </tr>
-        <tr>
-          <td>Kontaktu mota:</td>
-          <td>
-            <select name="slct">
-              <option value="aukeratu">Aukeratu</option>
-              <option value="kont">Kontaktu komertziala</option>
-              <option value="bez">Bezeroari arreta</option>
-              <option value="horn">Hornitzailearekin kontaktua</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2" align="center"><input  type="submit" name="bidali" value="Bidali"></td>
-        </tr>
-      </table>
-    </form>
+      <img src="form_icon.jpg" style="float: left;">
+      <form  name="form1"  onsubmit="balidatuFormularioTxikia()" method="post">
+        <table border="1">
+          <tr>
+            <td>Izena:</td><td><input id="izena" type="text" name="izena"</td><td><img src="tick.jpg" style="width:20px; heigth:20px; visibility:hidden;"id="1"></td>
+          </tr>
+          <tr>
+            <td>Adina:</td><td><input id="adina" style="width:50px;" type="text" name="adina"></td><td><img src="tick.jpg" style="width:20px; heigth:20px; visibility:hidden;"id="2"></td>
+          </tr>
+          <tr>
+            <td>Kontaktu mota:</td>
+            <td>
+              <select name="slct">
+                <option value="aukeratu">Aukeratu</option>
+                <option value="kont">Kontaktu komertziala</option>
+                <option value="bez">Bezeroari arreta</option>
+                <option value="horn">Hornitzailearekin kontaktua</option>
+              </select>
+            </td>
+            <td><img src="tick.jpg" style="width:20px; heigth:20px;visibility:hidden;"id="3"></td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center"><input onClick="return balidatuFormularioTxikia()" type="submit" name="bidali" value="Bidali"></td>
+          </tr>
+        </table>
+      </form>
     </div>
   </body>
 </html>
