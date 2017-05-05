@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+
+
+
+  </script>
+  </head>
+  <body>
+    <h1 style="margin:auto; width:300px;">Sartu datuak</h1>
+    <div style="margin:auto; width:700px;">
+      <img src="form_icon.jpg" style="float: left;">
+      <form  name="form1" method="post">
+        <table border="1">
+          <tr>
+            <td>Izena:</td><td><input id="izena" type="text" name="izena" ></td>
+          </tr>
+          <tr>
+            <td>Abizena:</td><td><input id="abizena" type="text" name="abizena"></td>
+          </tr>
+          <tr>
+            <td>email:</td><td><input id="email" value="@gmail.com" type="email" name="email"></td>
+          </tr>
+          <tr>
+            <td>pasahitza:</td><td><input id="pass1" type="password" name="pass1"></td>
+          </tr>
+          <tr>
+            <td>konfirmatu pasahitza:</td><td><input id="pass2" type="password" name="pass2"></td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center">
+              <input onClick="return balidatuFormularioTxikia()" type="Button" name="bidali" value="Bidali">
+              <input onClick="window.location.reload()" type="Button" name="ezabatu" value="Ezabatu">
+
+            </td>
+
+          </tr>
+        </table>
+      </form>
+    </div>
+    <script type="text/javascript">
+      function balidatuFormularioTxikia() {
+        var izena = document.forms["form1"]["izena"].value;
+        var abizena = document.forms["form1"]["abizena"].value;
+        var email = document.forms["form1"]["email"].value;
+        var pass1 = document.forms["form1"]["pass1"].value;
+        var pass2 = document.forms["form1"]["pass2"].value;
+        var fallo=false;
+        if (izena == ""){
+          alert("Idatzi izena mesedez");
+          fallo=true;
+          setFocus(izena);
+        }
+        if (!fallo && abizena==""){
+          alert("Idatzi abizena mesedez");
+          fallo=true;
+
+          setFocus(abizena);
+        }
+        if (!fallo && email=="") {
+          alert("Idatzi email-a mesedez");
+          fallo=true;
+          setFocus(email);
+        }
+        if (!fallo && pass1=="") {
+          alert("Sartu pasahitza mesedez");
+          fallo=true;
+          setFocus(pass1);
+        }
+        if (!fallo && pass2=="") {
+          alert("confirmatu pasahitza mesedez");
+          fallo=true;
+          setFocus(pass2);
+        }else if (pass1!=pass2) {
+          alert("pasahitzak berdinak izan behar dira");
+          fallo=true;
+          setFocus(pass2);
+        }
+        if (!fallo) {
+          alert("Eskerrik asko datuak bidaltzearren");
+        }
+      }
+      function setFocus(id){
+        document.getElementById(id).select();
+      }
+      function clear() {
+
+      }
+    </script>
+  </body>
+</html>

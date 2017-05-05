@@ -27,6 +27,7 @@
 
         } else{
           setImageVisible(1,true);
+
         }
 
 
@@ -34,28 +35,29 @@
           alert("adina zenbaki bat izan behar da");
           fallo=true;
           setFocus(adina);
-          return false;
+
 
         } else if (adina < 18) {
           alert("adina 18 baino handiagoa izan behar da");
           fallo=true;
           setFocus(adina);
-          return false;
+
 
         } else{
             setImageVisible(2,true);
         } if (document.getElementsByName("slct")[0].value == "aukeratu"){
           alert("aukeratu zerbait mesedez");
           fallo=true;
-          return false;
+
 
         } else {
           setImageVisible(3,true)
 
+
         }
         if (fallo==false) {
           alert("Eskerrik asko datuak bidaltzearren");
-          return false;
+
         }
 
     }
@@ -86,7 +88,7 @@
             <td><img src="tick.jpg" style="width:20px; heigth:20px;visibility:hidden;"id="3"></td>
           </tr>
           <tr>
-            <td colspan="2" align="center"><input onClick="return balidatuFormularioTxikia()" type="submit" name="bidali" value="Bidali"></td>
+            <td colspan="2" align="center"><input onClick="return balidatuFormularioTxikia()" type="Button" name="bidali" value="Bidali"></td>
           </tr>
         </table>
       </form>
